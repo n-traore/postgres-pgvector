@@ -1,0 +1,19 @@
+name: rag
+services:
+  pg:
+    image: pgvec-rag:0.0.1
+    container_name: postgres-pgvector
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+      - DB_SCHEMA=${DB_SCHEMA}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./utils/init.sh:/docker-entrypoint-initdb.d/init.sh
+    ports:
+      - 5432:5432
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
