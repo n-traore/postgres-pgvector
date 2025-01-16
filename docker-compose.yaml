@@ -1,7 +1,7 @@
 name: rag
 services:
   pg:
-    image: pgvec-rag:0.0.1
+    image: ntraore/postgres-vector
     container_name: postgres-pgvector
     environment:
       - POSTGRES_USER=${DB_USER}
