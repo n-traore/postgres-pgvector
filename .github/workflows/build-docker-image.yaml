@@ -22,6 +22,6 @@ jobs:
   
     - name: Build and push to dockerhub
       run: |
-        docker build --push --no-cache --build-arg -t "${DOCKERHUB_USER}/postgres-vector" .
+        docker build --push --no-cache -t "${DOCKERHUB_USER}/postgres-vector" .
       env:
         DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
